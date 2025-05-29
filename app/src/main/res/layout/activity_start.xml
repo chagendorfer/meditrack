@@ -5,7 +5,7 @@
     android:id="@+id/start_screen"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="activities.StartActivity">
+    tools:context=".activities.StartActivity">
 
     <!-- Profil Button oben links -->
     <ImageButton
@@ -48,7 +48,7 @@
 
     <!-- Titel: Homescreen -->
     <TextView
-        android:id="@+id/tv_title"
+        android:id="@+id/tv_hm_title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
@@ -69,7 +69,7 @@
         android:text="Label"
         android:textColor="#673AB7"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/tv_title" />
+        app:layout_constraintTop_toBottomOf="@id/tv_hm_title" />
 
     <!-- ScrollView mit CardView -->
     <ScrollView
