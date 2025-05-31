@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    android:padding="12dp"
+    android:gravity="center_vertical">
+
+    <ImageView
+        android:id="@+id/med_icon"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:src="@drawable/medication"
+        android:layout_marginEnd="12dp" />
+    <!-- TODO: maybe später a bild von der jeweiligen tablette -->
+
+    <TextView
+        android:id="@+id/med_name"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:text="Medikamentenname"
+        android:textSize="16sp"
+        android:textStyle="bold" />
+
+    <CheckBox
+        android:id="@+id/cb_reminder_enabled"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:checked="true" />
+</LinearLayout>

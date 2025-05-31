@@ -1,0 +1,74 @@
+{
+  "formatVersion": 1,
+  "database": {
+    "version": 1,
+    "identityHash": "f9721b3070b039b667587d3dc5b74e15",
+    "entities": [
+      {
+        "tableName": "medications",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `name` TEXT, `dosageAmount` REAL NOT NULL, `dosageUnit` TEXT, `intakeTime` TEXT, `startDate` TEXT, `endDate` TEXT, `packageSize` INTEGER NOT NULL, `reminderEnabled` INTEGER NOT NULL)",
+        "fields": [
+          {
+            "fieldPath": "id",
+            "columnName": "id",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "name",
+            "columnName": "name",
+            "affinity": "TEXT"
+          },
+          {
+            "fieldPath": "dosageAmount",
+            "columnName": "dosageAmount",
+            "affinity": "REAL",
+            "notNull": true
+          },
+          {
+            "fieldPath": "dosageUnit",
+            "columnName": "dosageUnit",
+            "affinity": "TEXT"
+          },
+          {
+            "fieldPath": "intakeTime",
+            "columnName": "intakeTime",
+            "affinity": "TEXT"
+          },
+          {
+            "fieldPath": "startDate",
+            "columnName": "startDate",
+            "affinity": "TEXT"
+          },
+          {
+            "fieldPath": "endDate",
+            "columnName": "endDate",
+            "affinity": "TEXT"
+          },
+          {
+            "fieldPath": "packageSize",
+            "columnName": "packageSize",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "reminderEnabled",
+            "columnName": "reminderEnabled",
+            "affinity": "INTEGER",
+            "notNull": true
+          }
+        ],
+        "primaryKey": {
+          "autoGenerate": true,
+          "columnNames": [
+            "id"
+          ]
+        }
+      }
+    ],
+    "setupQueries": [
+      "CREATE TABLE IF NOT EXISTS room_master_table (id INTEGER PRIMARY KEY,identity_hash TEXT)",
+      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, 'f9721b3070b039b667587d3dc5b74e15')"
+    ]
+  }
+}

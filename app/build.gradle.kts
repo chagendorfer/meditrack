@@ -14,6 +14,14 @@ android {
         versionName = "1.0"
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
+
+        javaCompileOptions {
+            annotationProcessorOptions {
+                arguments += mapOf(
+                    "room.schemaLocation" to "$projectDir/schemas"
+                )
+            }
+        }
     }
 
     buildTypes {
@@ -33,6 +41,8 @@ android {
 
 dependencies {
 
+    implementation("androidx.room:room-runtime:2.7.1")
+    annotationProcessor("androidx.room:room-compiler:2.7.1")
     implementation(libs.appcompat)
     implementation(libs.material)
     implementation(libs.activity)
