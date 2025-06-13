@@ -1,3 +1,15 @@
 <resources>
     <string name="app_name">MediTrack</string>
+    <string name="profile">Profile</string>
+    <string name="notifications">Notifications</string>
+    <string name="settings">Settings</string>
+    <string-array name="dose_units">
+        <item>mg</item>
+        <item>g</item>
+        <item>ml</item>
+        <item>Stück</item>
+        <item>Tropfen</item>
+        <item>Kapseln</item>
+        <item>Tabletten</item>
+    </string-array>
 </resources>

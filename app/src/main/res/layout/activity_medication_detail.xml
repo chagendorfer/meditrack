@@ -1,0 +1,298 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/medication_detail_screen"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MedicationDetailActivity">
+
+    <!-- Kopfzeile -->
+    <ImageButton
+        android:id="@+id/btn_profile"
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+        android:layout_margin="16dp"
+        android:background="@null"
+        android:contentDescription="@string/profile"
+        android:src="@drawable/account_circle"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageButton
+        android:id="@+id/btn_bell"
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+        android:layout_marginTop="16dp"
+        android:background="@null"
+        android:contentDescription="@string/notifications"
+        android:src="@drawable/notifications"
+        app:layout_constraintEnd_toStartOf="@id/btn_settings"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageButton
+        android:id="@+id/btn_settings"
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+        android:layout_margin="16dp"
+        android:background="@null"
+        android:contentDescription="@string/settings"
+        android:src="@drawable/settings"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <!-- Titel -->
+    <TextView
+        android:id="@+id/tv_title_medication"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="12dp"
+        android:text="Medikament hinzufügen"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/btn_profile" />
+
+    <!-- Optional: Untertitel -->
+    <TextView
+        android:id="@+id/tv_label"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="8dp"
+        android:text="Bitte alle Informationen ausfüllen"
+        android:textColor="#673AB7"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tv_title_medication" />
+
+    <!-- ScrollView mit Inhalt -->
+    <ScrollView
+        android:id="@+id/scroll_medication_form"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:fillViewport="true"
+        android:layout_margin="16dp"
+        app:layout_constraintTop_toBottomOf="@id/tv_label"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="16dp">
+
+            <!-- 1. Medikamentenname -->
+            <TextView
+                android:text="1. Name des Medikaments"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                android:layout_marginTop="8dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+
+            <EditText
+                android:id="@+id/editTextName"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="18sp"
+                android:hint="z.B. Paracetamol"
+                android:inputType="text"
+                android:importantForAccessibility="yes" />
+
+            <!-- 2. Dosis + Einheit -->
+            <TextView
+                android:text="2. Wie viele Einheiten pro Einnahme?"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                android:layout_marginTop="16dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="67dp"
+                android:layout_marginTop="8dp"
+                android:orientation="horizontal">
+
+                <EditText
+                    android:id="@+id/editTextDose"
+                    android:layout_width="0dp"
+                    android:layout_height="78dp"
+                    android:layout_weight="1"
+                    android:hint="z.B. 1"
+                    android:inputType="numberDecimal"
+                    android:textSize="18sp" />
+
+                <Spinner
+                    android:id="@+id/spinnerDoseUnit"
+                    android:layout_width="wrap_content"
+                    android:layout_height="40dp"
+                    android:layout_marginStart="12dp"
+                    android:entries="@array/dose_units"
+                    android:spinnerMode="dialog" />
+            </LinearLayout>
+
+            <!-- 3. Einnahmezeit -->
+            <TextView
+                android:text="3. Wann einnehmen?"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                android:layout_marginTop="16dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+
+            <!--
+            <Button
+                android:id="@+id/buttonTimePicker"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Uhrzeit auswählen"
+                android:textSize="18sp" />
+                -->
+
+            <CheckBox
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Morgens" />
+
+            <CheckBox
+                android:id="@+id/checkboxMittag"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Mittags" />
+
+            <CheckBox
+                android:id="@+id/checkboxAbend"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Abends" />
+
+            <!-- 4. Dauer der Einnahme -->
+            <TextView
+                android:text="4. Von wann bis wann?"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                android:layout_marginTop="16dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp">
+
+                <Button
+                    android:id="@+id/buttonStartDate"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="wrap_content"
+                    android:text="Startdatum"
+                    android:textSize="18sp" />
+
+                <Button
+                    android:id="@+id/buttonEndDate"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_marginStart="12dp"
+                    android:layout_height="wrap_content"
+                    android:text="Enddatum"
+                    android:textSize="18sp" />
+            </LinearLayout>
+
+            <!-- 5. Foto -->
+            <!--
+            <TextView
+                android:text="5. Foto hinzufügen (optional)"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                android:layout_marginTop="16dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+
+            <ImageView
+                android:id="@+id/imageViewPhoto"
+                android:layout_width="match_parent"
+                android:layout_height="180dp"
+                android:layout_marginTop="8dp"
+                android:scaleType="centerCrop"
+                android:contentDescription="Foto des Medikaments"
+                android:background="@android:color/darker_gray" />
+
+            <Button
+                android:id="@+id/buttonTakePhoto"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Foto aufnehmen"
+                android:textSize="18sp" />
+-->
+            <!-- 6. Barcode & Spracheingabe -->
+            <!--
+            <TextView
+                android:text="6. Weitere Möglichkeiten zur Eingabe"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                android:layout_marginTop="16dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+
+            <Button
+                android:id="@+id/buttonScan"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Per QR/Barcode scannen"
+                android:textSize="18sp" />
+
+            <Button
+                android:id="@+id/buttonVoiceInput"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Per Spracheingabe erfassen (🎤)"
+                android:textSize="18sp" />
+-->
+            <!-- 7. Erinnerung -->
+            <TextView
+                android:text="5. Erinnerung konfigurieren"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                android:layout_marginTop="16dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/buttonReminderSettings"
+                style="@style/Widget.Material3.Button.OutlinedButton"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Erinnerung konfigurieren"
+                android:textSize="18sp"
+                android:icon="@drawable/ic_alarm"
+                android:iconGravity="textStart"
+                android:iconPadding="12dp"
+                android:paddingVertical="14dp" />
+
+            <!-- Speichern -->
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/buttonSave"
+                style="@style/Widget.Material3.Button.Filled"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Speichern"
+                android:textSize="20sp"
+                android:textColor="@android:color/white"
+                android:backgroundTint="@android:color/holo_green_dark"
+                android:drawableStart="@drawable/ic_save"
+                android:drawablePadding="12dp"
+                android:padding="12dp"
+                android:paddingVertical="16dp"
+                android:layout_marginTop="32dp"
+                android:contentDescription="Speichern-Button mit Symbol" />
+
+
+        </LinearLayout>
+    </ScrollView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
